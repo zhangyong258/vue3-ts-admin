@@ -1,24 +1,7 @@
-# vue3-ts-cms
+1、集成editorconfig配置
 
-## Project setup
-```
-yarn install
-```
+2、使用prettier工具
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+3、使用ESLint检测
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+4、git Husky和eslint
