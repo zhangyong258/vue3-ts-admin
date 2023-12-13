@@ -41,12 +41,12 @@ chore 杂项（Other changes that don't modify src or test files）
 revert 撤销某次提交（Reverts a previous commit）
 
 commitlint 是一个 git commit 校验约束工具。
-1、npm install @commitlint/cli @commitlint/config-conventional -D 
-  echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
-2、项目根目录下添加commitlint.config.js文件
-    module.exports = {
-      extends: ['@commitlint/config-conventional']
-    }
+1、npm install @commitlint/cli @commitlint/config-conventional -D
+echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitlint.config.js
+2、项目根目录下添加 commitlint.config.js 文件
+module.exports = {
+extends: ['@commitlint/config-conventional']
+}
 npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
 
-6、快速生成vue代码片段 插件 Vue VSCode Snippets
+6、快速生成 vue 代码片段 插件 Vue VSCode Snippets
