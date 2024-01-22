@@ -1,20 +1,10 @@
 import axios from 'axios'
-import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
-
-interface HZRequestInterceptors {
-  requestInterceptor: (config: AxiosRequestConfig) => AxiosRequestConfig
-  requestInterceptorCatch: (error: any) => any
-  responseInterceptor: (config: AxiosResponse) => AxiosResponse
-  responseInterceptorCatch: (error: any) => any
-}
-
-interface HZRequestConfig extends AxiosRequestConfig {
-  interceptors?: HZRequestInterceptors
-}
+import type { AxiosInstance, AxiosRequestConfig } from 'axios'
+import type { HZRequestInterceptors, HZRequestConfig } from './type'
 
 class HZRequest {
   instance: AxiosInstance
-  interceptors: HZRequestInterceptors
+  interceptors?: HZRequestInterceptors
 
   constructor(config: HZRequestConfig) {
     this.instance = axios.create(config)
