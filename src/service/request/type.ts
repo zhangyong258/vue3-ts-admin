@@ -1,18 +1,16 @@
-import type {
-  AxiosRequestConfig,
-  AxiosResponse,
-  InternalAxiosRequestConfig
-} from 'axios'
+import type { AxiosResponse, InternalAxiosRequestConfig } from 'axios'
 
-export interface HZRequestInterceptors {
+export interface HZRequestInterceptors<T = AxiosResponse> {
   requestInterceptor?: (
     config: InternalAxiosRequestConfig
   ) => InternalAxiosRequestConfig
   requestInterceptorCatch?: (error: any) => any
-  responseInterceptor?: (config: AxiosResponse) => AxiosResponse
+  responseInterceptor?: (config: T) => T
   responseInterceptorCatch?: (error: any) => any
 }
 
-export interface HZRequestConfig extends AxiosRequestConfig {
-  interceptors?: HZRequestInterceptors
+export interface HZRequestConfig<T = AxiosResponse>
+  extends InternalAxiosRequestConfig {
+  interceptors?: HZRequestInterceptors<T>
+  showLoading?: boolean
 }
