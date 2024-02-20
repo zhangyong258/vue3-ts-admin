@@ -2,7 +2,8 @@ import { defineStore } from 'pinia'
 const projectStore = defineStore('project', {
   state: () => {
     return {
-      projectName: '禾筑'
+      menuWidth: 72,
+      activeMenu: 'overview'
     }
   },
   getters: {},
