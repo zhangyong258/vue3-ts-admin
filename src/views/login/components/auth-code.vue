@@ -10,37 +10,30 @@
   </el-button>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+import { ref } from 'vue'
+const sendBtnText = ref('获取验证码')
+const disableSend = ref(false)
+let timer: number | NodeJS.Timeout = 0
+const countDown = ref(60)
 
-export default defineComponent({
-  data() {
-    return {
-      sendBtnText: '获取验证码',
-      disableSend: false,
-      timer: 0,
-      countDown: 60
+const handleSend = () => {
+  disableSend.value = true
+  sendBtnText.value = `重新发送(${countDown.value}s)`
+
+  clearInterval(Number(timer))
+  timer = setInterval(() => {
+    countDown.value--
+    sendBtnText.value = `重新发送(${countDown.value}s)`
+
+    if (countDown.value === 0) {
+      disableSend.value = false
+      sendBtnText.value = '获取验证码'
+      clearInterval(Number(timer))
+      countDown.value = 60
     }
-  },
-  methods: {
-    handleSend() {
-      this.disableSend = true
-      this.sendBtnText = `重新发送(${this.countDown}s)`
-
-      this.timer = setInterval(() => {
-        this.countDown--
-        this.sendBtnText = `重新发送(${this.countDown}s)`
-
-        if (this.countDown === 0) {
-          this.disableSend = false
-          this.sendBtnText = `获取验证码`
-          clearInterval(this.timer)
-          this.countDown = 60
-        }
-      }, 1000)
-    }
-  }
-})
+  }, 1000)
+}
 </script>
 
 <style scoped lang="less">

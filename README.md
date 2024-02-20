@@ -1,18 +1,24 @@
 ## 集成 editorconfig 配置
+
 项目目录下添加.editorconfig 文件并配置
 
 ## 使用 prettier 工具
+
 package.json scripts 添加 "prettier": "prettier --write ."
 
 ## 使用 ESLint 检测
+
 .eslintrc.js extends 添加 'plugin:prettier/recommended'
 
 ## git Husky 和 eslint
+
 npx husky-init && npm install
 
 ## git commit 提交规范 （commitizen / commitlint）
+
 pnpm add commitizen -D
 npx commitizen init cz-conventional-changelog --save-dev --save-exact
+
 > 警告：
 > 在 pnpm monorepo 项目中想要通过 commitizen 约束 git commit 提交规范。
 > 执行 pnpm i commitizen -Dw
