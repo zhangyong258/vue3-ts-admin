@@ -8,7 +8,8 @@ export default [
     children: [
       {
         path: 'list',
-        name: 'ProjectList'
+        name: 'ProjectList',
+        component: () => import('@/views/project/index.vue')
       },
       {
         path: 'info:id?',

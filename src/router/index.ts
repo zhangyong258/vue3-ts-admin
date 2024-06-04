@@ -11,7 +11,7 @@ files.keys().forEach((key) => {
 const defaultRoutes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/project/list'
   },
   {
     path: '/404',

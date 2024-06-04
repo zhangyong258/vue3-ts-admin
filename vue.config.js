@@ -1,4 +1,7 @@
 const path = require('path')
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
 const { defineConfig } = require('@vue/cli-service')
 
 const AutoImport = require('unplugin-auto-import/webpack')
@@ -21,5 +24,22 @@ module.exports = defineConfig({
     config.resolve.alias
       .set('@', path.resolve(__dirname, 'src'))
       .set('components', '@/components')
+    config.plugin('html').tap((args) => {
+      args[0].title = '上海禾筑数字科技有限公司'
+      return args
+    })
+    // 设置 svg-sprite-loader
+    config.module.rule('svg').exclude.add(resolve('src/assets/icons')).end()
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('src/assets/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+      .end()
   }
 })

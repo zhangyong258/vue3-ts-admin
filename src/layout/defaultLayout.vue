@@ -6,8 +6,8 @@
 import { store } from '@/store'
 // import { localCache } from '@/utils/storage.ts'
 let { username, age } = store.user()
-let { projectName } = store.project()
-console.log('🚀 ~ projectName:', projectName)
+let { menuWidth } = store.project()
+console.log('🚀 ~ menuWidth:', menuWidth)
 console.log('🚀 ~ userStore:', username, age)
 </script>
 

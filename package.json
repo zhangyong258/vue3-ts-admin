@@ -1,5 +1,5 @@
 {
-  "name": "vue3-ts-admin",
+  "name": "hezhu-company",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -46,6 +46,7 @@
     "less": "^4.0.0",
     "less-loader": "^8.0.0",
     "prettier": "^2.4.1",
+    "svg-sprite-loader": "6.0.9",
     "typescript": "~4.5.5",
     "unplugin-auto-import": "^0.16.1",
     "unplugin-vue-components": "^0.20.0",
